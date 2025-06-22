@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para mi Ruu 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ff9a9e, #fad0c4);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 1em;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      white-space: pre-wrap;
+    }
+
+    .heart-button {
+      background-color: #ff6b81;
+      border: none;
+      color: white;
+      padding: 1em 2em;
+      font-size: 1.2em;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 1em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .heart-button:hover {
+      background-color: #ff4f70;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 10s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Te amo mi Ruu 💕</h1>
+  <p>
+    Ruuu, perdón por ser así, tan cerrado contigo. Es solo que nunca me habían demostrado tanto amor como tú lo haces. 
+    Mi corazón se ha sorprendido por lo linda y maravillosa que puedes ser conmigo. Perdón por no poder aguantar todo ese amor tan puro que me das.
+
+    Solo sé que te amo, te amo más de lo que imaginas, y no quiero perderte nunca. 
+    Tampoco puedo obligarte a estar conmigo o a amarme, pero créeme que quiero ser alguien mejor para ti: 
+    un buen novio, un gran amigo, y algún día… un buen esposo.
+
+    Te quiero demasiado, mi niña bonita.
+  </p>
+
+  <button class="heart-button" onclick="playMusic()">💖 Aprieta aquí 💖</button>
+
+  <audio id="loveSong">
+    <source src="아스트로(ASTRO) - 꿈속의 문(Moon) _ Memory of the Moon  Traducida Al Español.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <script>
+    function playMusic() {
+      document.getElementById('loveSong').play();
+    }
+
+    // corazones flotantes
+    const totalHearts = 30;
+    for (let i = 0; i < totalHearts; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+      heart.style.opacity = Math.random();
+      heart.style.transform = "scale(" + (0.5 + Math.random() * 1) + ") rotate(45deg)";
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
